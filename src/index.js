@@ -122,7 +122,7 @@ class App extends Component {
               </h6>
               <WeatherFetch />
             </MDBCol>
-            
+
           </MDBRow>
         </MDBContainer>
 
@@ -142,7 +142,7 @@ class App extends Component {
                 icon="clock"
                 hint="12:30"
                 group
-                type="text"
+                type="time"
                 getValue={this.handleInputChange("time")}
               />
               <MDBInput
