@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {MDBBtn, MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBIcon, MDBBadge, MDBContainer, MDBRow, MDBCol} from "mdbreact";
+import WeatherFetch from "./weatherFetch";
 import "./index.css";
 
 class App extends Component {
@@ -119,26 +120,9 @@ class App extends Component {
                 It's going to be busy that today. You have{" "}
                 <b>{this.state.events.length} events </b> today.
               </h6>
-              <h1 className="my-3">
-                <MDBRow>
-                    <MDBCol xs="3" className="text-center">
-                      <MDBIcon icon="sun" fixed />
-                    </MDBCol>
-                    <MDBCol xs="9">Sunny</MDBCol>
-                  </MDBRow>
-                  <MDBRow>
-                    <MDBCol xs="3" className="text-center">
-                    <MDBIcon icon="thermometer-three-quarters" fixed />
-                    </MDBCol>
-                    <MDBCol xs="9">23°C</MDBCol>
-                  </MDBRow>
-              </h1>
-              <p>
-                Don't forget your sunglasses. Today will dry and sunny, becoming
-                warm in the afternoon with temperatures of between 20 and 25
-                degrees.
-              </p>
+              <WeatherFetch />
             </MDBCol>
+            
           </MDBRow>
         </MDBContainer>
 
