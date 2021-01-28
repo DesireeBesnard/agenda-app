@@ -15,29 +15,29 @@ class App extends Component {
       events: [
         { id: 1,
           time: "10:00", 
-          title: "Breakfast with Simon", 
-          location: "Lounge Caffe", 
-          description: "Discuss Q3 targets"
+          title: "RDV Dentiste", 
+          location: "4 Rue de la Cheville, Besançon", 
+          description: ""
         },
 
         { id: 2,
           time: "10:30", 
-          title: "Daily Standup Meeting (recurring)",
-          location: "Warsaw Spire Office", 
-          description: ""
+          title: "Réunion quotidienne (récurrente)",
+          location: "Bureau", 
+          description: "Brief de la semaine"
         },
 
         { id: 3,
           time: "11:00", 
-          title: "Call with HRs",
+          title: "Appeler les Ressources Humaines",
         },
 
         {
           id: 4, 
           time: "12:00",
-          title: "Lunch with Timothy",
-          location: "Canteen",
-          description: "Project evaluation ile declaring a variable and using an if statement is a fine way to conditionnally render a component, sometimes you might to use a"
+          title: "Déjeuner avec Timothé",
+          location: "Kaf des vieux amants",
+          description: "Sujet: prochains projets d'investissement"
         }
       ]
     };
@@ -86,10 +86,21 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <MDBContainer>
-          <MDBRow>
-            <MDBCol md="9" className="mb-r">
-              <h2 className="text-uppercase my-3">Today:</h2>
+      <MDBContainer className="text-white">
+        <MDBRow>
+          <MDBCol className="d-flex align-items-center" size="8">
+              <h1 className="my-3">
+                Vous avez <span className="eventsnb">{" "}
+                <b>{this.state.events.length} tâches</b></span> à réaliser.
+              </h1>
+          </MDBCol>
+          <MDBCol size="4" className="text-center">
+            <WeatherFetch />
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          <MDBCol size="12">
+              <h2 className="text-uppercase my-3 font-weight-bold">Today:</h2>
               <div id="schedule-items">
                 {this.state.events.map(event => (
                   <Event
@@ -103,28 +114,19 @@ class App extends Component {
                   />
                 ))}
               </div>
-              <MDBRow className="mb-4">
-                <MDBCol xl="3" md="6" className="mx-auto text-center">
-                  <MDBBtn 
-                    color="info" 
-                    rounded 
-                    onClick={this.toggleModal}>
-                      Add Event
-                  </MDBBtn>
-                </MDBCol>
-              </MDBRow>
+          </MDBCol>
+          <MDBCol size="12">
+            <MDBCol xl="3" md="6" className="mx-auto text-center">
+              <MDBBtn 
+                color="info" 
+                rounded 
+                onClick={this.toggleModal}
+                className="mb-3">
+                  Ajouter une tâche
+              </MDBBtn>
             </MDBCol>
-            <MDBCol md="3">
-              <h3 className="text-uppercase my-3">Schedule</h3>
-              <h6 className="my-3">
-                It's going to be busy that today. You have{" "}
-                <b>{this.state.events.length} events </b> today.
-              </h6>
-              <WeatherFetch />
-            </MDBCol>
-
-          </MDBRow>
-        </MDBContainer>
+          </MDBCol>
+        </MDBRow>
 
         <MDBModal isOpen={this.state.modal} toggle={this.toggleModal}>
           <MDBModalHeader
@@ -132,13 +134,13 @@ class App extends Component {
             titleClass="w-100 font-weight-bold"
             toggle={this.toggleModal}
           >
-            Add new event
+            Ajouter une tâche
           </MDBModalHeader>
           <MDBModalBody>
             <form className="mx-3 grey-text">
               <MDBInput
                 name="time"
-                label="Time"
+                label="Heure"
                 icon="clock"
                 hint="12:30"
                 group
@@ -147,7 +149,7 @@ class App extends Component {
               />
               <MDBInput
                 name="title"
-                label="Title"
+                label="Titre"
                 icon="edit"
                 hint="Briefing"
                 group
@@ -156,7 +158,7 @@ class App extends Component {
               />
               <MDBInput
                 name="location"
-                label="Location (optional)"
+                label="Emplacement (optionel)"
                 icon="map"
                 group
                 type="text"
@@ -164,7 +166,7 @@ class App extends Component {
               />
               <MDBInput
                 name="description"
-                label="Description (optional)"
+                label="Description (optionel)"
                 icon="sticky-note"
                 group
                 type="textarea"
@@ -184,7 +186,7 @@ class App extends Component {
             </MDBBtn>
           </MDBModalFooter>
         </MDBModal>
-
+      </MDBContainer>
       </React.Fragment>
     );
   }
@@ -196,16 +198,10 @@ class Event extends Component {
       <React.Fragment>
         <div className="media mt-1">
 
-          <h3 className="h3-responsive font-weight-bold mr-3">
-            {this.props.time}
-          </h3>
+          <h3 className="h3-responsive font-weight-bold mr-3">{this.props.time}</h3>
 
           <div className="media-body mb-3 mb-lg-3">
-            <MDBBadge 
-              color="danger" 
-              className="ml-2 float-right" 
-              onClick={ () => this.props.onDelete(this.props.id)}
-            >
+            <MDBBadge color="info" className="ml-2 float-right" onClick={ () => this.props.onDelete(this.props.id)}>
               -
             </MDBBadge>
             <h6 className="mt-0 font-weight-bold">{this.props.title} </h6>{" "}
@@ -222,7 +218,7 @@ class Event extends Component {
         </div>
 
         {this.props.description && (
-          <p className="p-2 mb-4  blue-grey lighten-5 blue-grey lighten-5">
+          <p className="py-2 px-4 mb-4 rounded-pill description-bg">
             {this.props.description}
             </p>
           )}
