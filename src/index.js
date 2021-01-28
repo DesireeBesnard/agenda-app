@@ -88,19 +88,19 @@ class App extends Component {
       <React.Fragment>
       <MDBContainer className="text-white">
         <MDBRow>
-          <MDBCol className="d-flex align-items-center" size="8">
+          <MDBCol className="d-flex align-items-center justify-content-center" xs="6" md="8">
               <h1 className="my-3">
                 Vous avez <span className="eventsnb">{" "}
                 <b>{this.state.events.length} tâches</b></span> à réaliser.
               </h1>
           </MDBCol>
-          <MDBCol size="4" className="text-center">
+          <MDBCol md="4" className="text-center mb-3 mb-sm-3 d-none d-md-block">
             <WeatherFetch />
           </MDBCol>
         </MDBRow>
         <MDBRow>
           <MDBCol size="12">
-              <h2 className="text-uppercase my-3 font-weight-bold">Today:</h2>
+              <h2 className="text-uppercase my-3 font-weight-bold">Aujourd'hui:</h2>
               <div id="schedule-items">
                 {this.state.events.map(event => (
                   <Event
@@ -130,7 +130,7 @@ class App extends Component {
 
         <MDBModal isOpen={this.state.modal} toggle={this.toggleModal}>
           <MDBModalHeader
-            className="text-center"
+            className="text-center text-black"
             titleClass="w-100 font-weight-bold"
             toggle={this.toggleModal}
           >
@@ -151,7 +151,7 @@ class App extends Component {
                 name="title"
                 label="Titre"
                 icon="edit"
-                hint="Briefing"
+                hint="Titre"
                 group
                 type="text"
                 getValue={this.handleInputChange("title")}

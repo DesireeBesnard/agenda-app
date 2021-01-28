@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +47,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DesireeBesnard/agenda-app/issues"
-  }
+  },
+  "homepage":"http://www.desireebesnard.fr/agenda-app/"
 }
