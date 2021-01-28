@@ -94,7 +94,7 @@ class App extends Component {
                 <b>{this.state.events.length} tâches</b></span> à réaliser.
               </h1>
           </MDBCol>
-          <MDBCol xs="6" md="4" className="text-center mb-3 mb-sm-3">
+          <MDBCol md="4" className="text-center mb-3 mb-sm-3 d-none d-md-block">
             <WeatherFetch />
           </MDBCol>
         </MDBRow>
