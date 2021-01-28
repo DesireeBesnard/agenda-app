@@ -1,0 +1,16 @@
+body {
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+}
+
+.eventsnb {
+    color: #33b5e5 !important;
+}
+
+.description-bg {
+    background-color: #616161;
+}
+
+.temperature {
+    font-size: 30px;
+}
