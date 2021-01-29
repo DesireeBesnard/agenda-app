@@ -6,6 +6,7 @@ import "mdbreact/dist/css/mdb.css";
 import {MDBBtn, MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBIcon, MDBBadge, MDBContainer, MDBRow, MDBCol} from "mdbreact";
 import WeatherFetch from "./weatherFetch";
 import "./index.css";
+import registerServiceWorker from './registerServiceWorker';
 
 class App extends Component {
   constructor(props) {
@@ -229,3 +230,4 @@ class Event extends Component {
 
  
 ReactDOM.render(<App />, document.getElementById("root"));
+registerServiceWorker();

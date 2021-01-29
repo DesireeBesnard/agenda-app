@@ -1,15 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Agenda App",
+  "name": "Daily Agenda Progressive Web App",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://desireebesnard.fr/agenda-app/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2EA6E7",
+  "background_color": "#2EA6E7"
 }
