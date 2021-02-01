@@ -4,12 +4,20 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <meta name="theme-color" content="#33B5E5" />
+    <meta  name="description" content="Web site created using create-react-app"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-icons/logo60.png" />
+    <link rel="apple-touch-icon" size="76x76" href="apple-icons/logo76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-icons/logo114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-icons/logo144.png">
+    <meta name="apple-mobile-web-app-title" content="Agenda App">
+    <!-- Fontawsome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/css/mdb.min.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -28,7 +36,82 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div data-test="container" class="container text-white">
+
+        <div data-test="row" class="row">
+          <div data-test="col" class="col-xs-6 col-md-8 d-flex align-items-center justify-content-center">
+            <h1 class="my-3">Vous avez <span class="eventsnb"> <b>4 tâches</b></span> à réaliser.</h1>
+          </div>
+          <div data-test="col" class="col-md-4 text-center mb-3 mb-sm-3 d-none d-md-block">
+            <p class="m-0 temperature font-weight-bold">Température: 11 °C</p>
+            <p class="m-0">Ressenti: 7 °C</p>
+            <p class="m-0">Couvert</p>
+          </div>
+        </div>
+
+        <div data-test="row" class="row">
+          <div data-test="col" class="col-12">
+            <h2 class="text-uppercase my-3 font-weight-bold">Aujourd'hui:</h2>
+            <div id="schedule-items">
+              <!-- loading spinner -->
+              <div class="d-flex justify-content-center">
+                <div className="spinner-border text-info" role="status">
+                  <span className="sr-only">Chargement...</span>
+                </div>
+              </div>
+              <!-- loading spinner -->
+
+              <div class="media mt-1">
+                <h3 class="h3-responsive font-weight-bold mr-3">10:00</h3>
+                <div class="media-body mb-3 mb-lg-3">
+                  <span data-test="badge" class="badge info badge-info ml-2 float-right">-</span>
+                  <h6 class="mt-0 font-weight-bold">RDV Dentiste </h6>
+                   <hr class="hr-bold my-2">
+                  <p class="font-smaller mb-0"><i data-test="fa" class="fa fa-location-arrow"></i> 4 Rue de la Cheville, Besançon</p>
+                 </div>
+              </div>
+
+               <div class="media mt-1">
+                <h3 class="h3-responsive font-weight-bold mr-3">10:30</h3>
+                <div class="media-body mb-3 mb-lg-3">
+                   <span data-test="badge" class="badge info badge-info ml-2 float-right">-</span>
+                   <h6 class="mt-0 font-weight-bold">Réunion quotidienne (récurrente) </h6>
+                  <hr class="hr-bold my-2">
+                   <p class="font-smaller mb-0"><i data-test="fa" class="fa fa-location-arrow"></i> Bureau</p>
+                </div>
+              </div>
+               <p class="py-2 px-4 mb-4 rounded-pill description-bg">Brief de la semaine</p>
+
+               <div class="media mt-1"><h3 class="h3-responsive font-weight-bold mr-3">11:00</h3>
+                 <div class="media-body mb-3 mb-lg-3">
+                   <span data-test="badge" class="badge info badge-info ml-2 float-right">-</span>
+                   <h6 class="mt-0 font-weight-bold">Appeler les Ressources Humaines </h6>
+                   <hr class="hr-bold my-2">
+                </div>
+              </div>
+                
+              <div class="media mt-1">
+                <h3 class="h3-responsive font-weight-bold mr-3">12:00</h3>
+                <div class="media-body mb-3 mb-lg-3">
+                   <span data-test="badge" class="badge info badge-info ml-2 float-right">-</span>
+                  <h6 class="mt-0 font-weight-bold">Déjeuner avec Timothé </h6>
+                  <hr class="hr-bold my-2">
+                   <p class="font-smaller mb-0"><i data-test="fa" class="fa fa-location-arrow"></i> Kaf des vieux amants</p>
+                 </div>
+               </div>
+              <p class="py-2 px-4 mb-4 rounded-pill description-bg">Sujet: prochains projets d'investissement</p>
+            </div>
+          </div>
+
+          <div data-test="col" class="col-12">
+            <div data-test="col" class="col-md-6 col-xl-3 mx-auto text-center">
+              <button data-test="button" type="button" class="btn-info btn Ripple-parent mb-3">Ajouter une tâche<div data-test="waves" class="Ripple Ripple-outline " style="top: 0px; left: 0px; width: 0px; height: 0px;"></div></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
